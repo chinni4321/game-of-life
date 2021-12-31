@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/elegant-works-331902/gameoflife:v1
+        image: nginx
         ports:
         - containerPort: 80
