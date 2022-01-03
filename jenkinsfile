@@ -59,6 +59,7 @@ pipeline {
       sh 'docker push chinniprashanthsahul/myimage:gameoflife'
      }
     }
-
+   }
+   
   }
 }
