@@ -49,7 +49,7 @@ pipeline {
       stage('Building image') {
        steps{
          script {
-           dockerImage = docker.build chinniprashanthsahul/myimage:gameoflife
+           dockerImage = docker.build "chinniprashanthsahul/myimage:gameoflife"
            }
           }
          }
