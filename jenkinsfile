@@ -53,13 +53,16 @@ pipeline {
            }
           }
          }
-     stage('Deploy Image') {
-      steps {
-   withDockerRegistry([ credentialsId: "registryCredential", url: "https://hub.docker.com/" ]) {
-      sh 'docker push chinniprashanthsahul/myimage:gameoflife'
+
+   stage('Docker publish') {
+    steps {
+    script {
+        withDockerRegistry(registry:[ credentialsId: 'registryCredential']) {
+         sh 'docker push chinniprashanthsahul/myimage:gameoflife'
+         }
+        }
+      }
      }
-    }
-   }
    
   }
 }
