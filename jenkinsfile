@@ -54,13 +54,9 @@ pipeline {
           }
          }
      stage('Deploy Image') {
-      steps{
-       script {
-        docker.withRegistry( '', registryCredential ) {
-        dockerImage.push("$BUILD_NUMBER")
-        dockerImage.push('latest')
-       }
-      }
+      steps {
+   withDockerRegistry([ credentialsId: "registryCredential", url: "https://hub.docker.com/" ]) {
+      sh 'docker push chinniprashanthsahul/myimage:gameoflife'
      }
     }
 
