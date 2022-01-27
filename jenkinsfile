@@ -63,6 +63,19 @@ pipeline {
         }
       }
      }
+     stage ('Deploy to kubernetes'){
+        steps{
+          script {
+            sh "kubectl config use-context gke_virtual-cairn-335910_us-central1-c_demo"
+            sh "cd ${WORKSPACE}"
+            sh "kubectl delete -f '${WORKSPACE}'/kube/deployment.yaml"
+            sh "kubectl apply -f '${WORKSPACE}'/kube/service.yaml"
+            sh "kubectl create -f '${WORKSPACE}'/kube/deployment.yaml"
+           
+          
+        }
+       }
+      }
    
   }
 }
