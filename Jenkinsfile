@@ -15,7 +15,7 @@ environment {
 
     tools {
     jdk 'Java8'
-    maven 'maven3.3.9'
+    maven 'Maven3.3.9'
 
   }
 
