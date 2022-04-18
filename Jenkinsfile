@@ -1,25 +1,25 @@
 pipeline {
-agent { label 'master' }
+  agent { label 'master' }
 
   tools {
     jdk 'Java8'
     maven 'Maven3.3.9'
-
   }
- stages {
-     stage('Git checkout'){
-       steps {
-          git 'https://github.com/chinni4321/game-of-life.git'
-     
-       }
+ parameters {
+      string(defaultValue: 'master', description: 'Please type any branch name to deploy', name: 'Branch')
+ }  
+
+stages {
+    stage('Git checkout'){
+      steps {
+        git branch: '${Branch}',
+        url: 'https://github.com/chinni4321/game-of-life.git'
+      }
     }
-
-     stage('Maven Build'){
-       steps {
-          sh 'mvn clean install'
-     
-       }
-     }
-  }
+    stage('Maven build'){
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+ }
 }
-    
