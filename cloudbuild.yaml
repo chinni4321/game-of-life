@@ -7,9 +7,9 @@ steps:
   dir: 'game-of-life/gameoflife-build/'
    # build the container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/lucid-splicer-344217/test:v2", "."]
+  args: ["build", "-t", "gcr.io/meta-yen-367622/helloworld:v5", "."]
   # push container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/lucid-splicer-344217/test:v2"]
+  args: ["push", "gcr.io/meta-yen-367622/helloworld:v5"]
 
 
